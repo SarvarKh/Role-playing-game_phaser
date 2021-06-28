@@ -1,21 +1,18 @@
 import _ from 'lodash';
-import './style.css';
-import Icon from './cokecan.png';
+import printMe from './print.js';
 
-function component() {
-  const element = document.createElement('div');
+ function component() {
+   const element = document.createElement('div');
+  const btn = document.createElement('button');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
- // Add the image to our existing div.
- const myIcon = new Image();
- myIcon.src = Icon;
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
 
- element.appendChild(myIcon);
+  element.appendChild(btn);
 
-  return element;
-}
+   return element;
+ }
 
-document.body.appendChild(component());
+ document.body.appendChild(component());
