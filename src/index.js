@@ -1,18 +1,11 @@
-import _ from 'lodash';
-import printMe from './print.js';
+import 'phaser';
 
- function component() {
-   const element = document.createElement('div');
-  const btn = document.createElement('button');
+import { SimpleScene } from './scenes/simple-scene';
 
-   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+const gameConfig = {
+  width: 680,
+  height: 400,
+  scene: SimpleScene
+};
 
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-   return element;
- }
-
- document.body.appendChild(component());
+new Phaser.Game(gameConfig);
