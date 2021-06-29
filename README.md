@@ -1,9 +1,11 @@
-# Role-playing-game_phaser
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Role-playing-game_phaser
+# Hunter - Phaser 3 game
 
-> A personal task manager - dynamically rendered in JavaScript using the Webpack. Projects and tasks can be created and stored in Web browser's local storage.
+> This is a Hunting video game built with Javascript and the game engine Phaser.
+
+## About The Project
+
 
 <div align="center">
   <img src="screenshots/general.jpg?raw=true" width="100%" height="auto"/>
@@ -15,7 +17,6 @@
   <img src="screenshots/mobile_02.jpg?raw=true" width="40%" height="auto"/>
 </div>
 
-> A Todo List is part of Full-Stack JavaScript Curriculum in the [the Odin Project’s](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list).
 
 ## Unit Testing with [Jest JavaScript Testing Framework](https://jestjs.io/)
 
