@@ -78,9 +78,13 @@ Feel free to check the [issues page](https://github.com/SarvarKh/to-do-list/issu
 
 Give a ⭐️ if you like this project!
 
-## Game soundtrack
-
-
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
+
+#### Game soundtrack
+Superepic by [Alexander Nakarada](https://www.serpentsoundstudios.com)
+Music promoted by https://www.chosic.com
+Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/ 
+
