@@ -5,7 +5,9 @@
 > This is a Hunting video game built with Javascript and the game engine Phaser.
 
 ## About The Project
+2D Hunting game running only on browsers and built with Phaser 3. The player's job is to try to avoid a enemy attacks. So the player should keep smashing them as they get in close ranges. The main objective of the game is to keep the enemies at a distance and smash any that gets closer to the player. If more enemies appear in close range to the player, they overwhelm and defeat you.
 
+For each enemy you smash, points will be added to your score. In the end, you will be added to the leaderboard if you come out among the best.
 
 <div align="center">
   <img src="screenshots/general.jpg?raw=true" width="100%" height="auto"/>
@@ -27,8 +29,9 @@
 ## Built With
 
 - JavaScript
+- Phaser
 - Webpack
-- Jest JavaScript Testing Framework 
+- Jest JS Testing 
 - HTML/CSS
 
 ## Live Demo
