@@ -95,14 +95,12 @@ export default class GameScene extends Phaser.Scene {
           // parameters are x, y, width, height
           this.spawns.create(x, y, 20, 20);            
       }        
-      // add collider
-      this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
 
       // add stars
       this.stars = this.physics.add.group({
           key: 'star',
           repeat: 4,
-          setXY: { x: Phaser.Math.RND.between(8, 128), y: Phaser.Math.RND.between(30, 150), stepX: Phaser.Math.RND.between(80, 120), stepY: Phaser.Math.RND.between(0, 200) }
+          setXY: { x: Phaser.Math.RND.between(8, 128), y: Phaser.Math.RND.between(30, 150), stepX: Phaser.Math.RND.between(80, 120), stepY: Phaser.Math.RND.between(0, 100) }
         });
 
         
@@ -140,22 +138,12 @@ export default class GameScene extends Phaser.Scene {
           star.enableBody(true, star.x, Phaser.Math.RND.between(30, 150), true, true);
           var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);  
       
-          var bomb = this.bombs.create(x, 16, 'bomb');
+          var bomb = this.bombs.create(x, Phaser.Math.Between(16, 200), 'bomb');
           bomb.setBounce(1);
           bomb.setCollideWorldBounds(true);
           bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
   }
 
-  onMeetEnemy(player, zone) {        
-      // we move the zone to some other location
-      zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-      zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-      
-      // shake the world
-      this.cameras.main.shake(300);
-      
-      // start battle 
-  }
   update(time, delta){
   //    this.controls.update(delta);
   
