@@ -14,6 +14,9 @@ export default class GameScene extends Phaser.Scene {
       
       // our two characters
       this.load.spritesheet('player', 'assets/RPG_assets.png', { frameWidth: 16, frameHeight: 16 });
+
+      // load star image 
+      this.load.image('star', 'assets/star6.png');
   }
 
   create () {
@@ -88,6 +91,33 @@ export default class GameScene extends Phaser.Scene {
       }        
       // add collider
       this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
+
+      // add stars
+      this.stars = this.physics.add.group({
+          key: 'star',
+          repeat: 4,
+          setXY: { x: Phaser.Math.RND.between(12, 48), y: Phaser.Math.RND.between(24, 36), stepX: Phaser.Math.RND.between(80, 100) }
+        });
+
+      this.stars = this.physics.add.group({
+          key: 'star',
+          repeat: 3,
+          setXY: { x: Phaser.Math.RND.between(36, 60), y: Phaser.Math.RND.between(186, 200), stepX: Phaser.Math.RND.between(140, 180) }
+        });
+
+      this.stars = this.physics.add.group({
+            key: 'star',
+            repeat: 4,
+            setXY: { x: Phaser.Math.RND.between(24, 48), y: Phaser.Math.RND.between(420, 460), stepX: Phaser.Math.RND.between(80, 120) }
+          });
+        
+      this.physics.add.collider(this.stars, this.obstacles);
+      this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
+      
+  }
+
+  collectStar (player, star) {
+      star.disableBody(true, true);
   }
 
   onMeetEnemy(player, zone) {        
