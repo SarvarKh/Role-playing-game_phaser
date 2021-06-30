@@ -20,6 +20,9 @@ export default class GameScene extends Phaser.Scene {
 
       // load star image 
       this.load.image('star', 'assets/star6.png');
+
+      // load bomb image
+      this.load.image('bomb', 'assets/bomb.png');
   }
 
   create () {
@@ -98,7 +101,7 @@ export default class GameScene extends Phaser.Scene {
       // add stars
       this.stars = this.physics.add.group({
           key: 'star',
-          repeat: Phaser.Math.RND.between(4, 6),
+          repeat: 4,
           setXY: { x: Phaser.Math.RND.between(8, 128), y: Phaser.Math.RND.between(30, 150), stepX: Phaser.Math.RND.between(80, 120), stepY: Phaser.Math.RND.between(0, 200) }
         });
 
@@ -108,6 +111,23 @@ export default class GameScene extends Phaser.Scene {
       
       // Scores
       scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '16px', fill: '#000' });
+
+      // Bombs
+      this.bombs = this.physics.add.group();
+
+      this.physics.add.collider(this.bombs, this.obstacles);
+
+      this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
+  }
+
+  hitBomb(player, bomb) {
+      this.physics.pause();
+  
+      this.player.setTint(0xff0000);
+  
+    //   this.player.anims.play('turn');
+  
+      gameOver = true;
   }
 
   collectStar (player, star) {
@@ -115,6 +135,15 @@ export default class GameScene extends Phaser.Scene {
 
       score += 10;
       scoreText.setText('Score: ' + score);
+
+  
+          star.enableBody(true, star.x, Phaser.Math.RND.between(30, 150), true, true);
+          var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);  
+      
+          var bomb = this.bombs.create(x, 16, 'bomb');
+          bomb.setBounce(1);
+          bomb.setCollideWorldBounds(true);
+          bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
   }
 
   onMeetEnemy(player, zone) {        
