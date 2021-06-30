@@ -7,7 +7,7 @@ export default class GameScene extends Phaser.Scene {
 
   preload() {
       // map tiles
-      this.load.image('tiles', 'assets/map/spritesheet.png');
+      this.load.image('tiles', 'assets/map/sand_tileset4.png');
       
       // map in json format
       this.load.tilemapTiledJSON('map', 'assets/map/map.json');
