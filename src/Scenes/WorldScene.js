@@ -1,5 +1,8 @@
 import 'phaser';
 
+var score = 0;
+var scoreText;
+
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('World');
@@ -95,29 +98,23 @@ export default class GameScene extends Phaser.Scene {
       // add stars
       this.stars = this.physics.add.group({
           key: 'star',
-          repeat: 4,
-          setXY: { x: Phaser.Math.RND.between(12, 48), y: Phaser.Math.RND.between(24, 36), stepX: Phaser.Math.RND.between(80, 100) }
+          repeat: Phaser.Math.RND.between(4, 6),
+          setXY: { x: Phaser.Math.RND.between(8, 128), y: Phaser.Math.RND.between(30, 150), stepX: Phaser.Math.RND.between(80, 120), stepY: Phaser.Math.RND.between(0, 200) }
         });
 
-      this.stars = this.physics.add.group({
-          key: 'star',
-          repeat: 3,
-          setXY: { x: Phaser.Math.RND.between(36, 60), y: Phaser.Math.RND.between(186, 200), stepX: Phaser.Math.RND.between(140, 180) }
-        });
-
-      this.stars = this.physics.add.group({
-            key: 'star',
-            repeat: 4,
-            setXY: { x: Phaser.Math.RND.between(24, 48), y: Phaser.Math.RND.between(420, 460), stepX: Phaser.Math.RND.between(80, 120) }
-          });
         
       this.physics.add.collider(this.stars, this.obstacles);
       this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
       
+      // Scores
+      scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '16px', fill: '#000' });
   }
 
   collectStar (player, star) {
       star.disableBody(true, true);
+
+      score += 10;
+      scoreText.setText('Score: ' + score);
   }
 
   onMeetEnemy(player, zone) {        
