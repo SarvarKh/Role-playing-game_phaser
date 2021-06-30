@@ -17,6 +17,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create () {
+    this.cameras.main.zoom = 2;
       // create the map
       var map = this.make.tilemap({ key: 'map' });
       
