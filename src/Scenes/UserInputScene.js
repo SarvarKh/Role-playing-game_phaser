@@ -1,5 +1,5 @@
 import 'phaser';
-import Button from '../Objects/Button';
+import { setplayer } from '../helper/localstorage';
 
 export default class UserInputScene extends Phaser.Scene {
   constructor () {
@@ -30,7 +30,6 @@ export default class UserInputScene extends Phaser.Scene {
     this.add.dom(canvas.clientWidth / 2, -canvas.clientHeight / 2, this.input);
 
     this.nameInput = this.add.sprite(this.game.config.width / 2, 305, 'blueButton2');
-    console.log(this.nameInput);
     Phaser.Display.Align.In.Center(this.input, this.nameInput);
 
     this.submit = this.add.image(this.game.config.width / 2, 428, 'blueButton2').setInteractive();
@@ -41,6 +40,8 @@ export default class UserInputScene extends Phaser.Scene {
     this.submit.on('pointerdown', () => {
         if (/[a-z]/i.test(this.input.value)) {
           this.scene.start('Game');
+          window.localStorage.clear();
+          setplayer(this.input.value);
         }
     });
   }
