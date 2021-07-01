@@ -2,6 +2,7 @@ import 'phaser';
 
 var score = 0;
 var scoreText;
+var gameOverText;
 
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -122,8 +123,11 @@ export default class GameScene extends Phaser.Scene {
       this.physics.pause();
   
       this.player.setTint(0xff0000);
+      this.player.anims.play("turn")
 
-      this.scene.start('LeadersDashboard');
+      //   GameOver
+    //   gameOverText = this.add.text(200, 150, 'Game Over', { fontSize: '48px', fill: '#000' });
+    //   this.scene.start('LeadersDashboard');
   }
 
   collectStar (player, star) {
