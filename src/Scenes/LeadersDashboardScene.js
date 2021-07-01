@@ -7,6 +7,7 @@ export default class LeadersDashboardScene extends Phaser.Scene {
   }
 
   create () {
+    console.log(localStorage);
     this.gameOverText = this.add.text(0, 0, 'Game Over', { fontSize: '32px', fill: '#fff' });
     this.madeByText = this.add.text(0, 0, 'Leaders Dashboard:', { fontSize: '26px', fill: '#fff' });
     // this.dashboard = this.add.text(0,0, "Leaders Dashboard");

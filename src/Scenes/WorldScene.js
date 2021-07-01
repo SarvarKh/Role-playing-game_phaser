@@ -1,4 +1,5 @@
 import 'phaser';
+import { highscore } from '../helper/localstorage';
 
 var score = 0;
 var scoreText;
@@ -123,11 +124,11 @@ export default class GameScene extends Phaser.Scene {
       this.physics.pause();
   
       this.player.setTint(0xff0000);
-      this.player.anims.play("turn")
-
+      this.player.anims.play("turn");
+      highscore(score);
       //   GameOver
     //   gameOverText = this.add.text(200, 150, 'Game Over', { fontSize: '48px', fill: '#000' });
-    //   this.scene.start('LeadersDashboard');
+      this.scene.start('LeadersDashboard');
   }
 
   collectStar (player, star) {
