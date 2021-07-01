@@ -1,7 +1,7 @@
 import 'phaser';
-import { highscore } from '../helper/localstorage';
+import { getscore } from '../helper/localstorage';
 
-var score = 0;
+var score;
 var scoreText;
 var gameOverText;
 
@@ -28,6 +28,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create () {
+    score = 0;
     this.cameras.main.zoom = 2;
       // create the map
       var map = this.make.tilemap({ key: 'map' });
@@ -125,10 +126,8 @@ export default class GameScene extends Phaser.Scene {
   
       this.player.setTint(0xff0000);
       this.player.anims.play("turn");
-      highscore(score);
-      //   GameOver
-    //   gameOverText = this.add.text(200, 150, 'Game Over', { fontSize: '48px', fill: '#000' });
-      this.scene.start('LeadersDashboard');
+      getscore(score);
+      this.scene.start('GameOver');
   }
 
   collectStar (player, star) {

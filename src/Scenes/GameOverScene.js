@@ -1,16 +1,18 @@
 import 'phaser';
 import config from '../Config/config';
+import { getscore } from '../helper/localstorage';
 
-export default class LeadersDashboardScene extends Phaser.Scene {
+export default class GameOverScene extends Phaser.Scene {
   constructor () {
-    super('LeadersDashboard');
+    super('GameOver');
   }
 
   create () {
     console.log(localStorage);
     this.gameOverText = this.add.text(0, 0, 'Game Over', { fontSize: '32px', fill: '#fff' });
-    this.madeByText = this.add.text(0, 0, 'Leaders Dashboard:', { fontSize: '26px', fill: '#fff' });
+    this.madeByText = this.add.text(0, 0, `${localStorage.getItem('player')}` + "'s current score:" + `${localStorage.getItem('score')}`, { fontSize: '26px', fill: '#fff' });
     // this.dashboard = this.add.text(0,0, "Leaders Dashboard");
+
     this.zone = this.add.zone(config.width/2, config.height/2, config.width, config.height);
 
     Phaser.Display.Align.In.Center(
@@ -40,7 +42,7 @@ export default class LeadersDashboardScene extends Phaser.Scene {
       targets: this.madeByText,
       y: -100,
       ease: 'Power1',
-      duration: 5000,
+      duration: 8000,
       delay: 1000,
       onComplete: function () {
         this.madeByTween.destroy;
