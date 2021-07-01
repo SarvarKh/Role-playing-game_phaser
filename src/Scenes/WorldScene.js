@@ -122,10 +122,8 @@ export default class GameScene extends Phaser.Scene {
       this.physics.pause();
   
       this.player.setTint(0xff0000);
-  
-    //   this.player.anims.play('turn');
-  
-      gameOver = true;
+
+      this.scene.start('LeadersDashboard');
   }
 
   collectStar (player, star) {
