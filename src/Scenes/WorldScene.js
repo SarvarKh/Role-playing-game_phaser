@@ -1,5 +1,6 @@
 import 'phaser';
 import { getscore } from '../helper/localstorage';
+import { postFetch } from '../helper/fetchingData';
 
 var score;
 var scoreText;
@@ -127,6 +128,9 @@ export default class GameScene extends Phaser.Scene {
       this.player.setTint(0xff0000);
       this.player.anims.play("turn");
       getscore(score);
+
+      postFetch();
+
       this.scene.start('GameOver');
   }
 
