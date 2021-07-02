@@ -1,5 +1,6 @@
 import 'phaser';
 import Button from '../Objects/Button';
+import { getPlayers } from '../helper/fetchingData';
 
 export default class LeaderBoardScene extends Phaser.Scene {
   constructor () {
@@ -17,27 +18,6 @@ export default class LeaderBoardScene extends Phaser.Scene {
     this.message.setOrigin(0.5);
 
     this.menuButton = new Button(this, 400, 100, 'blueButton1', 'blueButton2', 'Menu', 'Title');
-
-    const getData = async (url) => {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        return data.result;
-      } catch (error) {
-        return error;
-      }
-    };
-
-    const sortPlayers = (arr) => {
-      arr.sort((a, b) => b.score - a.score);
-      return arr;
-    };
-
-    const getPlayers = async (url) => {
-      const arr = await getData(url);
-      if (typeof (arr) === 'object') sortPlayers(arr);
-      return arr;
-    };
 
     const topplayers = async (url) => {
       try {

@@ -19,5 +19,27 @@
             .catch((error) => {
                 console.error("Error:", error);
             })
-    } 
+    }
+
+
+    const getData = async (url) => {
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          return data.result;
+        } catch (error) {
+          return error;
+        }
+      };
+  
+      const sortPlayers = (arr) => {
+        arr.sort((a, b) => b.score - a.score);
+        return arr;
+      };
+  
+      export const getPlayers = async (url) => {
+        const arr = await getData(url);
+        if (typeof (arr) === 'object') sortPlayers(arr);
+        return arr;
+      };
     
