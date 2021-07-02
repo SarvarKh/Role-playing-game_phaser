@@ -1,6 +1,7 @@
+/* eslint no-undef: 0 */
+/* eslint no-unused-expressions: 0 */
 import 'phaser';
 import config from '../Config/config';
-import { getscore } from '../helper/localstorage';
 
 export default class GameOverScene extends Phaser.Scene {
   constructor() {
@@ -8,10 +9,8 @@ export default class GameOverScene extends Phaser.Scene {
   }
 
   create() {
-    console.log(localStorage);
     this.gameOverText = this.add.text(0, 0, 'Game Over', { fontSize: '32px', fill: '#fff' });
-    this.madeByText = this.add.text(0, 0, `${localStorage.getItem('player')}` + "'s current score:" + `${localStorage.getItem('score')}`, { fontSize: '26px', fill: '#fff' });
-    // this.dashboard = this.add.text(0,0, "Leaders Dashboard");
+    this.madeByText = this.add.text(0, 0, `${localStorage.getItem('player')}'s current score: ${localStorage.getItem('score')}`, { fontSize: '26px', fill: '#fff' });
 
     this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
 
@@ -44,7 +43,7 @@ export default class GameOverScene extends Phaser.Scene {
       ease: 'Power1',
       duration: 8000,
       delay: 1000,
-      onComplete: function () {
+      onComplete: function () { // eslint-disable-line func-names
         this.madeByTween.destroy;
         this.scene.start('Title');
       }.bind(this),
