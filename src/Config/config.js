@@ -1,7 +1,7 @@
 import 'phaser';
 
 export default {
-  type: Phaser.AUTO,
+  type: Phaser.AUTO, // eslint-disable-line no-undef
   parent: 'phaser-example',
   width: 800,
   height: 600,

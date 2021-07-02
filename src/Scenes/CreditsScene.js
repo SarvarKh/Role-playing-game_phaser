@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+/* eslint no-unused-expressions: 0 */
 import 'phaser';
 import config from '../Config/config';
 
@@ -40,7 +42,7 @@ export default class CreditsScene extends Phaser.Scene {
       ease: 'Power1',
       duration: 8000,
       delay: 1000,
-      onComplete: function () {
+      onComplete: function () { // eslint-disable-line func-names
         this.madeByTween.destroy;
         this.scene.start('Title');
       }.bind(this),
