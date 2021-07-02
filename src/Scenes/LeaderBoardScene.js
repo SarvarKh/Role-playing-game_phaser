@@ -1,4 +1,5 @@
 import 'phaser';
+import Button from '../Objects/Button';
 
 export default class LeaderBoardScene extends Phaser.Scene {
   constructor () {
@@ -14,6 +15,8 @@ export default class LeaderBoardScene extends Phaser.Scene {
       align: 'center',
     });
     this.message.setOrigin(0.5);
+
+    this.menuButton = new Button(this, 400, 100, 'blueButton1', 'blueButton2', 'Menu', 'Title');
 
     const getData = async (url) => {
       try {
@@ -39,7 +42,7 @@ export default class LeaderBoardScene extends Phaser.Scene {
     const topplayers = async (url) => {
       try {
         const players = await getPlayers(url);
-        let y = 60;
+        let y = 110;
         for (let i = 0; i < 12; i += 1) {
           const text = this.add.text(this.game.config.width * 0.5, (y += 50), `${players[i].user}: ${players[i].score}`, {
             fontFamily: 'monospace',
