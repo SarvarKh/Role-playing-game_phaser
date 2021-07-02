@@ -1,10 +1,10 @@
+/* eslint no-undef: 0 */
 import 'phaser';
 import { getscore } from '../helper/localstorage';
 import { postFetch } from '../helper/fetchingData';
 
 let score;
 let scoreText;
-let gameOverText;
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -38,13 +38,14 @@ export default class GameScene extends Phaser.Scene {
     const tiles = map.addTilesetImage('spritesheet', 'tiles');
 
     // creating the layers
-    const grass = map.createStaticLayer('Grass', tiles, 0, 0);
+    map.createStaticLayer('Grass', tiles, 0, 0);
     const obstacles = map.createStaticLayer('Obstacles', tiles, 0, 0);
 
     // make all tiles in obstacles collidable
     obstacles.setCollisionByExclusion([-1]);
 
-    //  animation with key 'left', we don't need left and right as we will use one and flip the sprite
+    //  animation with key 'left'
+    // we don't need left and right as we will use one and flip the sprite
     this.anims.create({
       key: 'left',
       frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13] }),
@@ -91,21 +92,15 @@ export default class GameScene extends Phaser.Scene {
     // user input
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    // where the enemies will be
-    this.spawns = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
-    for (let i = 0; i < 30; i++) {
-      const x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-      const y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-      // parameters are x, y, width, height
-      this.spawns.create(x, y, 20, 20);
-    }
-
     // add stars
     this.stars = this.physics.add.group({
       key: 'star',
       repeat: 4,
       setXY: {
-        x: Phaser.Math.RND.between(8, 128), y: Phaser.Math.RND.between(30, 150), stepX: Phaser.Math.RND.between(80, 120), stepY: Phaser.Math.RND.between(0, 100),
+        x: Phaser.Math.RND.between(8, 128),
+        y: Phaser.Math.RND.between(30, 150),
+        stepX: Phaser.Math.RND.between(80, 120),
+        stepY: Phaser.Math.RND.between(0, 100),
       },
     });
 
@@ -123,7 +118,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
   }
 
-  hitBomb(player, bomb) {
+  hitBomb() {
     this.physics.pause();
 
     this.player.setTint(0xff0000);
@@ -150,9 +145,7 @@ export default class GameScene extends Phaser.Scene {
     bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
   }
 
-  update(time, delta) {
-  //    this.controls.update(delta);
-
+  update() {
     this.player.body.setVelocity(0);
 
     // Horizontal movement
