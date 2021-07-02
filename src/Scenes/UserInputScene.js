@@ -1,12 +1,10 @@
+/* eslint no-undef: 0 */
 import 'phaser';
 import { setplayer } from '../helper/localstorage';
 
 export default class UserInputScene extends Phaser.Scene {
   constructor() {
     super('UserInput');
-  }
-
-  preload() {
   }
 
   create() {

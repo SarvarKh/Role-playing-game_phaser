@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */
 import 'phaser';
 import Button from '../Objects/Button';
 
