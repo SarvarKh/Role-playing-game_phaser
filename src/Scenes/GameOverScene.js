@@ -3,26 +3,26 @@ import config from '../Config/config';
 import { getscore } from '../helper/localstorage';
 
 export default class GameOverScene extends Phaser.Scene {
-  constructor () {
+  constructor() {
     super('GameOver');
   }
 
-  create () {
+  create() {
     console.log(localStorage);
     this.gameOverText = this.add.text(0, 0, 'Game Over', { fontSize: '32px', fill: '#fff' });
     this.madeByText = this.add.text(0, 0, `${localStorage.getItem('player')}` + "'s current score:" + `${localStorage.getItem('score')}`, { fontSize: '26px', fill: '#fff' });
     // this.dashboard = this.add.text(0,0, "Leaders Dashboard");
 
-    this.zone = this.add.zone(config.width/2, config.height/2, config.width, config.height);
+    this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
 
     Phaser.Display.Align.In.Center(
       this.gameOverText,
-      this.zone
+      this.zone,
     );
 
     Phaser.Display.Align.In.Center(
       this.madeByText,
-      this.zone
+      this.zone,
     );
 
     this.madeByText.setY(1000);
@@ -33,9 +33,9 @@ export default class GameOverScene extends Phaser.Scene {
       ease: 'Power1',
       duration: 3000,
       delay: 1000,
-      onComplete: function () {
+      onComplete() {
         this.destroy;
-      }
+      },
     });
 
     this.madeByTween = this.tweens.add({
@@ -47,7 +47,7 @@ export default class GameOverScene extends Phaser.Scene {
       onComplete: function () {
         this.madeByTween.destroy;
         this.scene.start('Title');
-      }.bind(this)
+      }.bind(this),
     });
   }
-};
+}

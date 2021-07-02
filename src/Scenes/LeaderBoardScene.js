@@ -3,11 +3,11 @@ import Button from '../Objects/Button';
 import { getPlayers } from '../helper/fetchingData';
 
 export default class LeaderBoardScene extends Phaser.Scene {
-  constructor () {
+  constructor() {
     super('LeaderBoard');
   }
 
-  create () {
+  create() {
     this.message = this.add.text(this.game.config.width * 0.5, 48, "Leader's Dash Board", {
       fontFamily: 'monospace',
       fontSize: 30,
@@ -41,4 +41,4 @@ export default class LeaderBoardScene extends Phaser.Scene {
 
     topplayers('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/cPmZS72pS3JcSbhdLSEq/scores/');
   }
-};
+}

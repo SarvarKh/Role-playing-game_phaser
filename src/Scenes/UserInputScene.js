@@ -2,14 +2,14 @@ import 'phaser';
 import { setplayer } from '../helper/localstorage';
 
 export default class UserInputScene extends Phaser.Scene {
-  constructor () {
+  constructor() {
     super('UserInput');
   }
-  
-  preload () {
+
+  preload() {
   }
 
-  create () {
+  create() {
     this.message = this.add.text(this.game.config.width * 0.5, 228, 'Input Player Name', {
       fontFamily: 'monospace',
       fontSize: 20,
@@ -20,8 +20,8 @@ export default class UserInputScene extends Phaser.Scene {
 
     this.message.setOrigin(0.5);
 
-    this.body = document.querySelector("body");
-    const canvas = document.querySelector("canvas");
+    this.body = document.querySelector('body');
+    const canvas = document.querySelector('canvas');
 
     this.input = this.body.appendChild(document.createElement('input'));
     this.input.setAttribute('id', 'myText');
@@ -38,11 +38,11 @@ export default class UserInputScene extends Phaser.Scene {
     Phaser.Display.Align.In.Center(this.text, this.submit);
 
     this.submit.on('pointerdown', () => {
-        if (/[a-z]/i.test(this.input.value)) {
-          this.scene.start('Game');
-          window.localStorage.clear();
-          setplayer(this.input.value);
-        }
+      if (/[a-z]/i.test(this.input.value)) {
+        this.scene.start('Game');
+        window.localStorage.clear();
+        setplayer(this.input.value);
+      }
     });
   }
-};
+}

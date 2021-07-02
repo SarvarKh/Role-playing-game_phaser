@@ -8,7 +8,7 @@ export const highscore = (points) => {
   } else {
     localStorage.setItem('highscore', points);
   }
-}
+};
 
 export const getscore = (points) => {
   if (localStorage.getItem('player')) {
