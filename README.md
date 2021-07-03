@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Hunter - Phaser 3 game
+# Desert conqueror - Phaser 3 game
 
 > This is a Desert Conqueror - 2D RPG game built with Javascript and the game engine Phaser library.
 
