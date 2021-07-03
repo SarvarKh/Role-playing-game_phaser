@@ -17,6 +17,6 @@ const getscore = (points) => {
   }
 };
 
-export {setplayer};
-export {highscore};
-export {getscore};
+export { setplayer };
+export { highscore };
+export { getscore };
