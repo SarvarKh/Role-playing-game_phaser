@@ -42,7 +42,7 @@ Click here to see detail [GDD](GDD.md)
 
 ## Live Demo
 
-<!-- [Live Demo Link](https://smart-to-do-list.netlify.app/) -->
+[Live Demo Link](https://desert-conqueror.netlify.app/)
 
 ## Getting Started
 
