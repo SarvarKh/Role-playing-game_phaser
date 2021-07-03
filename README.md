@@ -2,23 +2,29 @@
 
 # Hunter - Phaser 3 game
 
-> This is a Hunting video game built with Javascript and the game engine Phaser.
+> This is a Desert Conqueror - 2D RPG game built with Javascript and the game engine Phaser library.
 
 ## About The Project
-2D Hunting game running only on browsers and built with Phaser 3. The player's job is to try to avoid a enemy attacks. So the player should keep smashing them as they get in close ranges. The main objective of the game is to keep the enemies at a distance and smash any that gets closer to the player. If more enemies appear in close range to the player, they overwhelm and defeat you.
+Desert conqueror - 2D RPG game running only on browsers and built with Phaser 3. 
+The player's job is to collect as many coins as possible trying to avoid a bomb attacks.
+So the player should keep collecting coins avoding collision with any moving bombs. 
+For each coin collected, there will be another new coin be created along with moving bombs. 
+The main objective of the game is to keep the bombs at a distance and collect coins as much as possible. 
+If player collides with any moving bomb, the game will end.
 
-For each enemy you smash, points will be added to your score. In the end, you will be added to the leaderboard if you come out among the best.
+For each coin you collect, points will be added to your score. 
+In the end, you will be added to the leaderboard if you come out among the best.
 
 <div align="center">
-  <img src="screenshots/general.jpg?raw=true" width="100%" height="auto"/>
-  <img src="screenshots/desktop_00.jpg?raw=true" width="40%" height="auto"/>
-  <img src="screenshots/tablet.jpg?raw=true" width="40%" height="auto"/>
-  <img src="screenshots/desktop_01.png?raw=true" width="40%" height="auto"/>
-  <img src="screenshots/desktop_02.png?raw=true" width="40%" height="auto"/>
-  <img src="screenshots/mobile_01.jpg?raw=true" width="40%" height="auto"/>
-  <img src="screenshots/mobile_02.jpg?raw=true" width="40%" height="auto"/>
+  <img src="screenshots/general.png?raw=true" width="100%" height="auto"/>
+  <img src="screenshots/Screen_01.png?raw=true" width="40%" height="auto"/>
+  <img src="screenshots/Screen_02.png?raw=true" width="40%" height="auto"/>
+  <img src="screenshots/Screen_03.png?raw=true" width="40%" height="auto"/>
+  <img src="screenshots/Screen_04.png?raw=true" width="40%" height="auto"/>
 </div>
 
+## Game Design Document (GDD)
+Click here to see detail [GDD](GDD.md) 
 
 ## Unit Testing with [Jest JavaScript Testing Framework](https://jestjs.io/)
 
@@ -36,18 +42,14 @@ For each enemy you smash, points will be added to your score. In the end, you wi
 
 ## Live Demo
 
-[Live Demo Link](https://smart-to-do-list.netlify.app/)
-
-## Website demo on YouTube 
-
-[YouTube Demo Link](https://youtu.be/x0ZowZuOVTU)
+<!-- [Live Demo Link](https://smart-to-do-list.netlify.app/) -->
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
 ### Setup
-    Step 1: git clone https://github.com/SarvarKh/to-do-list.git
+    Step 1: git clone https://github.com/SarvarKh/Role-playing-game_phaser.git
     
     Step 2: open live-server
 
@@ -72,7 +74,7 @@ To get a local copy up and running follow these simple example steps.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/SarvarKh/to-do-list/issues).
+Feel free to check the [issues page](https://github.com/SarvarKh/Role-playing-game_phaser/issues).
 
 ## Show your support
 
