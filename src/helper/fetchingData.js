@@ -20,7 +20,7 @@ export const postFetch = () => {
     });
 };
 
-const getData = async (url) => {
+export const getData = async (url) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -30,7 +30,7 @@ const getData = async (url) => {
   }
 };
 
-const sortPlayers = (arr) => {
+export const sortPlayers = (arr) => {
   arr.sort((a, b) => b.score - a.score);
   return arr;
 };
