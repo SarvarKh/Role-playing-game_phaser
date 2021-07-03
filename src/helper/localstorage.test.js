@@ -3,14 +3,16 @@
  */
 import { setplayer } from './localstorage';
 
-describe("Manupulating with LocalStorage", () => {
-    beforeAll(() => {
-        setplayer("Romano")
+describe("Manupulating LocalStorage data", () => {
+    beforeEach(() => {
+        setplayer('Romano');
     })
     test("Store user name into LocalStorage", () => {
         const dataAddedToLS = {
             'player': "Romano"
         };
-        expect(JSON.parse(localStorage.getItem(JSON.stringify('Random project name')))).toBe(dataAddedToLS);
+        expect(localStorage.getItem("player")).toEqual(dataAddedToLS.player);
+        
+        localStorage.clear();
     })
 })
