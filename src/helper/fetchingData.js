@@ -12,12 +12,8 @@ export const postFetch = () => {
     body: JSON.stringify(formData),
   })
     .then((response) => response.json())
-    .then((data) => {
-      return data;
-    })
-    .catch((error) => {
-      return error;
-    });
+    .then((data) => data)
+    .catch((error) => error);
 };
 
 export const getData = async (url) => {
