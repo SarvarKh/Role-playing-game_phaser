@@ -13,10 +13,10 @@ export const postFetch = () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log('Success:', data); // eslint-disable-line no-console
+      return data;
     })
     .catch((error) => {
-      console.error('Error:', error); // eslint-disable-line no-console
+      return error;
     });
 };
 
