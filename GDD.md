@@ -29,13 +29,24 @@ Currently, there is only one player controlled by one user
 A user may control play with keyboard arrow buttons (up, down, left, right) 
 
 #### Technical Aspects
-game is designed for 800x600 screen size 
-game scene zoom 2x
-built with Phaser 3 library
-used API to store user's scores and fetch data to show top users on the "Leaders dashboard"
-10 scenes of the game
-enabling/disabling background music
-used Webpack JavaScript module bundler
+- game is designed for 800x600 screen size 
+- game scene zoom 2x
+- built with Phaser 3 library
+- used API to store user's scores and fetch data to show top users on the "Leaders dashboard"
+- 10 scenes of the game
+- enabling/disabling background music
+- used Webpack JavaScript module bundler
+
+#### Game Assets
+- Map background tile image: sand  with trees;
+- Bombs and Stars;
+- RPG spritesheet with frames;
+
+#### Game Sounds
+- Superepic by Alexander Nakarada
+- Music promoted by https://www.chosic.com 
+- Attribution 4.0 International (CC BY 4.0) 
+- https://creativecommons.org/licenses/by/4.0/
 
 ## Goals
 ##### Initial goals (before starting to code):
