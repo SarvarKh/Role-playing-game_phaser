@@ -5,7 +5,7 @@ import {
   setplayer,
   highscore,
   getscore,
-} from './localstorage';
+} from '../src/helper/localstorage';
 
 describe('Manupulating LocalStorage data', () => {
   beforeEach(() => {

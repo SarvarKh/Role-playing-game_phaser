@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { sortPlayers } from './fetchingData';
+import { sortPlayers } from '../src/helper/fetchingData';
 
 describe('Sorting test', () => {
   test('test for sorting array of objects in desc order', () => {
